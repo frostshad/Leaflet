@@ -1,0 +1,13 @@
+<div class="map-container">
+  
+  <select [(ngModel)]="selectedCity" (ngModelChange)="changeCity()">
+    <option *ngFor="let item of cities" [ngValue]="item.map">{{item.name}}</option>
+  </select>
+  <div>{{selectedCity}}</div>
+    <div class="map-frame">
+      
+      <div id="map"></div>
+      
+    </div>
+  
+  </div>

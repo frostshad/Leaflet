@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import * as C from './cities';
 
 @Component({
   selector: 'app-map',
@@ -11,7 +12,7 @@ export class MapComponent implements OnInit {
   private map!: L.Map;
 
   public changeCity(): void {
-    this.map.setView(this.selectedCity!,8)
+    this.map.setView(this.selectedCity!,10)
   };
   
   private initMap(): void {
@@ -27,17 +28,12 @@ export class MapComponent implements OnInit {
     tiles.addTo(this.map);
   
   }
-
-  cities = [
-    {id:'0', name: 'Москва', map: [55.7504461, 37.6174943]},
-    {id: '1', name: 'Тюмень', map: [57.1668968, 65.5152054]}
-  ];
+  cities = C.cities;
   
-  constructor() { }
 
   ngOnInit(): void {
     this.initMap();
-    
+ 
   }
   
 }

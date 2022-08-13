@@ -10,6 +10,7 @@ import * as C from './cities';
 export class MapComponent implements OnInit {
   public selectedCity = null;
   private map!: L.Map;
+  cities = C.cities;
 
   public changeCity(): void {
     this.map.setView(this.selectedCity!,10)
@@ -17,8 +18,8 @@ export class MapComponent implements OnInit {
   
   private initMap(): void {
     this.map = L.map('map', {
-      center: [55.7504461, 37.6174943],
-      zoom: 8
+      center: [57.16, 65.51],
+      zoom: 5
     });
 
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -28,7 +29,6 @@ export class MapComponent implements OnInit {
     tiles.addTo(this.map);
   
   }
-  cities = C.cities;
   
 
   ngOnInit(): void {
